@@ -2,6 +2,9 @@ name: vhs
 on:
   push:
     paths:
+      - '**/*.c'
+      - '**/*.h'
+      - '**/Makefile'
       - '**/*.tape'
 jobs:
   vhs:
