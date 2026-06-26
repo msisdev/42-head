@@ -19,9 +19,20 @@ jobs:
             fi
           done
         
+      # vhs-action의 path 인자에 와일드카드(**/*.tape) 적용이 안 되므로, 
+      # path 없이 호출하여 vhs 바이너리만 환경에 설치합니다.
       - uses: charmbracelet/vhs-action@v1
-        with:
-          path: '**/*.tape'
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      # 설치된 vhs를 사용하여 모든 .tape 파일을 직접 찾아서 렌더링합니다.
+      - name: Generate tapes
+        run: |
+          for tape in $(find . -name "*.tape"); do
+            vhs "$tape"
+          done
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
