@@ -6,6 +6,7 @@ on:
       - 'philo/**/*.h'
       - 'philo/Makefile'
       - 'philo/demo.tape'
+      - '.github/workflows/vhs-philo.yml'
 jobs:
   vhs:
     runs-on: ubuntu-latest
