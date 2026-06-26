@@ -23,9 +23,14 @@ jobs:
             fi
           done
         
-      # vhs-action의 path 인자에 와일드카드(**/*.tape) 적용이 안 되므로, 
-      # path 없이 호출하여 vhs 바이너리만 환경에 설치합니다.
+      - name: Create dummy tape for action
+        run: touch vhs.tape
+
+      # vhs-action이 설치만 하고 통과하도록 유도하기 위해 빈 vhs.tape를 둡니다.
       - uses: charmbracelet/vhs-action@v1
+
+      - name: Remove dummy tape
+        run: rm vhs.tape
 
       - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
