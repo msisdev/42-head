@@ -28,7 +28,7 @@ jobs:
 
       - name: Install VHS
         run: |
-          go install github.com/charmbracelet/vhs@latest
+          go install github.com/charmbracelet/vhs@v0.11.0
           echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
 
       # 설치된 vhs를 사용하여 모든 .tape 파일을 직접 찾아서 렌더링합니다.
