@@ -6,6 +6,7 @@ on:
       - '**/*.h'
       - '**/Makefile'
       - '**/*.tape'
+      - '.github/workflows/vhs.yml'
 jobs:
   vhs:
     runs-on: ubuntu-latest
