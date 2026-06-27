@@ -62,10 +62,10 @@ Output ./assets/demo.gif
 Require echo
 
 Set Shell "bash"
-Set FontSize 32
+Set FontSize 16
 Set Width 1200
 Set Height 600
 
 Type "./philo 5 610 200 200 3" Sleep 500ms  Enter
 
-Sleep 5s
+Sleep 7s
