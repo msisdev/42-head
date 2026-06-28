@@ -151,3 +151,22 @@ typedef struct s_store
 - 공유 객체 뮤텍스를 획득한 상태에서만 로그를 출력합니다.
 
 
+## Result
+C언어에서 오류 없이 코딩하는법을 고민했습니다.
+```c
+// /philo/include/lib.h
+typedef struct s_clock
+{
+	t_time	begin;
+	t_ms_t	now;
+}	t_clock;
+
+t_clock			clock_make(t_ms_d delay);
+t_clock			clock_clone(const t_clock *clk_ref);
+void			clock_ready(t_clock *clk_ref);
+t_ms_t			clock_now(const t_clock *clk_ref);
+t_ms_t			clock_update(t_clock *clk_ref);
+t_ms_t			clock_sleep_until(t_clock *clk_ref, t_ms_t t);
+t_ms_t			clock_sleep_for(t_clock *clk_ref, t_ms_d d);
+```
+- 구조체를 객체지향적으로 표현하여 만족스러운 결과를 얻었습니다.
