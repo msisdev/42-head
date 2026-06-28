@@ -25,12 +25,11 @@ make
 - 철학자의 수만큼 `pthread_mutex_t` 를 생성합니다.
 - 각 철학자는 독립적인 스레드에서 철학자의 행동을 모방합니다.
 
-## Requirements
+## Requirement
 
+### Requirement 1: Arguments
 ```
-$ make
-$ ./philo
-usage: ./philo <#_of_philo> <die_ms> <eat_ms> <sleep_ms> [<eat_goal>]
+./philo <#_of_philo> <die_ms> <eat_ms> <sleep_ms> [<eat_goal>]
 ```
 - `<#_of_philo>`: 철학자 수만큼 스레드 생성
 - `<die_ms>`: 철학자가 식사를 시작하지 못한 이후부터 죽기까지의 시간.
@@ -38,6 +37,12 @@ usage: ./philo <#_of_philo> <die_ms> <eat_ms> <sleep_ms> [<eat_goal>]
 - `<sleep_ms>`: 철학자가 자는 시간
 - `[<eat_goal>]`: 모든 철학자가 이 수만큼 식사를 마치면 프로그램 종료.
 
+### Requirement 2: Log
+```
+<timestamp_ms> <philo_id> <is thinking | has taken a fork | is eating | is sleeping | has died>
+```
+- 스레드의 행동을 최대한 빠르게 타임스탬프와 함께 로그.
+- 종료 조건을 만족하면 로그 중단.
 
 
 ## Problem
